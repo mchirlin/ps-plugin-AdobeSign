@@ -1,0 +1,36 @@
+<appian-plugin name="Adobe Sign Utilities" key="com.appiancorp.ps.plugins.adobesign">
+
+  <plugin-info>
+    <description>Adobe Sign Utilities</description>
+    <vendor name="Appian Corporation" url="http://www.appian.com" />
+    <version>${project.version}</version>
+    <application-version min="16.1.0" />
+  </plugin-info>
+
+  <!-- Data Types -->
+  <datatype key="AgreementCreationInfo" name="Agreement Creation Info">
+	<class>com.appiancorp.ps.plugins.adobesign.types.AdobeSignAgreementCreationInfo</class>
+  </datatype>
+  <datatype key="FileInfo" name="File Info">
+	<class>com.appiancorp.ps.plugins.adobesign.types.AdobeSignFileInfo</class>
+  </datatype>
+  <datatype key="RecipientSetInfo" name="Recipient Set Info">
+	<class>com.appiancorp.ps.plugins.adobesign.types.AdobeSignRecipientSetInfo</class>
+  </datatype>
+  
+  <!-- Smart Services -->
+  <smart-service name="Create Agreement" key="CreateAgreement"
+    class="com.appiancorp.ps.plugins.adobesign.AdobeSignCreateAgreement" />
+  <smart-service name="Create Transient Documents" key="CreateTransientDocuments"
+    class="com.appiancorp.ps.plugins.adobesign.AdobeSignCreateTransientDocuments" />
+  <smart-service name="Get Agreement" key="GetAgreement"
+    class="com.appiancorp.ps.plugins.adobesign.AdobeSignGetAgreement" />
+  
+  <!-- Servlets -->
+  <servlet name="Adobe Sign Callback handler" key="adobesigncallback" class="com.appiancorp.ps.plugins.adobesign.AdobeSignCallbackHandler">
+    <description>
+      A servlet that responds to events from the Adobe Sign server
+    </description>
+    <url-pattern>/stateless/adobesigncallback</url-pattern>
+  </servlet>
+</appian-plugin>
